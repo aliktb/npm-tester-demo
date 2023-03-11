@@ -1,6 +1,6 @@
 {
   "name": "npm-tester-demo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "sample app to try npm packages",
   "type": "module",
   "main": "index.js",
