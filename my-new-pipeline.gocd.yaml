@@ -1,0 +1,30 @@
+format_version: 10
+pipelines:
+  my-new-pipeline:
+    group: My-Pipelines
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-78351ed:
+        git: https://github.com/aliktb/npm-tester-demo
+        shallow_clone: false
+        auto_update: true
+        branch: main
+    stages:
+    - test-and-report:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          run-unit-tests:
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - '10'
+                command: sleep
+                run_if: passed
